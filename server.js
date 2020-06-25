@@ -1,6 +1,3 @@
-require('./routes/auth.routes')(app);
-require('./routes/user.routes')(app);
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -69,6 +66,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get('/', (req, res) => {
     res.json({ message: 'Welcome to app 🤗'})
 });
+
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
 
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
